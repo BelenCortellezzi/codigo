@@ -7,6 +7,8 @@ import {getFirestore} from "@firebase/firestore" // traigo todos los metodos de 
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+//ACA VA TU CODIGO DE FIREBASE
 const firebaseConfig = {
   apiKey: "AIzaSyBL25fq6BBWwsKiVGxQEncmLh9eiWbn8fA",
   authDomain: "reactcoderprueba.firebaseapp.com",
