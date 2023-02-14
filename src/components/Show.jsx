@@ -22,7 +22,7 @@ const Show = () => {
   const getProducts = async () => {
     const data = await getDocs(productsCollection); //data me trae los documentos de productCollection
 
-    setProducts(data.doc.map((doc) => ({ ...doc.data(), id: doc.id })));
+    setProducts(data.docs.map((doc) => ({ ...doc.data(), id:doc.id })));
   };
 
   //4 funcion para eliminar un documento
@@ -55,7 +55,7 @@ const Show = () => {
   //5 useEffect para actualizar la informacion cuando hago el llamado a la base de datos
 
   useEffect(() => {
-    getProducts();
+    getProducts()
   }, []);
 
   //6 devolver la vista
@@ -66,10 +66,7 @@ const Show = () => {
         <div className="row">
           <div className="col">
             <div className="d-grid gap-2">
-              <link to="/create" className="btn btn-secondary mt-2 mb-2">
-                {" "}
-                CREAR{" "}
-              </link>
+              <Link to="/create" className="btn btn-secondary mt-2 mb-2">CREAR</Link>
             </div>
 
             <table className="table table-dark table hover">
@@ -86,18 +83,13 @@ const Show = () => {
                   <tr key={product.id}>
                     <td>{product.descripcion} </td>
                     <td>{product.stock} </td>
-                    <td>{product.acciones} </td>
+                   
 
                     <td>
-                      <link
-                        to={`/edit/${product.id}`}
-                        className="btn btn-light"
-                      >
-                        <i className="fa-solid fa-pencil"></i>
-                      </link>
-                      <button
-                        onClick={() => {
-                          confirmDelete(product.id);
+                      <Link
+                        to={`/edit/${product.id}`} className="btn btn-light">
+                        <i className="fa-solid fa-pencil"></i></Link>
+                      <button onClick={() => {confirmDelete(product.id);
                         }}
                         className="btn btn-danger"
                       >
